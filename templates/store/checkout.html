@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <!-- slider Area Start-->
+  <div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="{% static 'img/category.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Checkout</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- slider Area End-->
+
+  <!--================Checkout Area =================-->
+  <section class="checkout_area section_padding">
+    <div class="container">
+
+      <div class="billing_details">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2>Contact Information</h2>
+            <form class="row contact_form" action="{% url 'place_order' %}" method="POST">
+              {% csrf_token %}
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" name="first_name" placeholder="First Name" required />
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" name="last_name" placeholder="Last Name" required />
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" name="email" placeholder="Email Address" required />
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" name="phone" placeholder="Phone number" required/>
+              </div>
+
+
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" name="address_line_1" placeholder="Address line 1" required/>
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" name="address_line_2" placeholder="Address line 2"/>
+              </div>
+              <div class="col-md-4 form-group p_star">
+                <input type="text" class="form-control" name="city" placeholder="Town/City" required/>
+              </div>
+              <div class="col-md-4 form-group p_star">
+                <input type="text" class="form-control" name="state" placeholder="State" required/>
+              </div>
+              <div class="col-md-4 form-group p_star">
+                <input type="text" class="form-control" name="country" placeholder="Country" required/>
+              </div>
+              <div class="col-md-12 form-group">
+                <textarea class="form-control" name="order_note"  rows="1"
+                  placeholder="Order Note"></textarea>
+              </div>
+              </div>
+          <div class="col-lg-4">
+            <div class="order_box">
+              <h2>Your Order</h2>
+              <ul class="list">
+                <li>
+                  <a href="#">Product
+                    <span>Quantity</span>
+                  </a>
+                </li>
+                <li>
+                  {% for cart_item in cart_items %}
+                  <a href="{{ cart_item.product.get_url }}">{{ cart_item.product.product_name }}
+                    <span class="last">{{ cart_item.quantity }}
+                      {% endfor %}
+                </li>
+              </ul>
+              <br>
+              <button type="submit" name="submit" class="btn_3">Place Order</button><br>
+              <a class="btn_3" href="{% url 'store' %}">Continue Shopping</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Checkout Area =================-->
+{% endblock %}

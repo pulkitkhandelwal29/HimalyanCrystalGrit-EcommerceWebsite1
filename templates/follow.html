@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="slider-area ">
+  <!-- Mobile Menu -->
+  <div class="single-slider slider-height2 d-flex align-items-center" data-background="{% static 'img/category.jpg' %}">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="hero-cap text-center">
+                      <h2>Follow Us</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<section class="subscribe_part section_padding">
+   <div class="container">
+       <div class="row justify-content-center">
+           <div class="col-lg-8">
+               <div class="subscribe_part_content">
+
+                   <div class="subscribe_form">
+                       <input type="text" placeholder="himalyancrystalgrit" readonly="readonly">
+                       <a href="https://www.instagram.com/himalyancrystalgrit/" class="btn_1">instagram</a>
+                   </div>
+                   <div class="subscribe_form">
+                       <input type="text" placeholder="+91-9571085536" readonly="readonly">
+                       <a href="https://wa.me/9571085536/" class="btn_1">Whatsapp</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+{% endblock %}

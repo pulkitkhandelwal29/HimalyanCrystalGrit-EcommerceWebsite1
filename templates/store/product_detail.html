@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="{% static 'img/category.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>{{ single_product.product_name }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+
+  <!--================Single Product Area =================-->
+  <div class="product_image_area">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="product_img_slide owl-carousel">
+						{% for i in product_gallery %}
+            <div class="single_product_img">
+              <img src="{{ i.image.url }}" alt="#" class="img-fluid">
+            </div>
+  				{% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="single_product_text text-center">
+            <h3>{{ single_product.product_name }}</h3>
+						<br>
+						<ul class="list-group">
+							{% for line in lines %}
+						  <li class="list-group-item">{{ line }}</li>
+						{% endfor %}
+						</ul>
+            <div class="card_area">
+							{% if single_product.is_available == False %}
+							<h4 class='text-danger'>Out of Stock</h4>
+						{% else %}
+								{% if in_cart %}
+								<a href="#" class="btn_3"> <span class="text">Added to Cart</span> <i class="fas fa-check"></i> </a>
+								<a href="{% url 'cart' %}" class="btn_3"> <span class="text">View Cart</span> <i class="fas fa-eye"></i>  </a>
+		              <div class="add_to_cart">
+								{% else %}
+                <a href="{% url 'add_cart' single_product.id %}" class="btn_3"><span class="text">Add to Cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+								{% endif %}
+						{% endif %}
+						  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================End Single Product Area =================-->
+
+
+{% endblock %}

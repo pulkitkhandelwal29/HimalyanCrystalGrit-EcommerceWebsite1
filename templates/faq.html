@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="slider-area ">
+  <!-- Mobile Menu -->
+  <div class="single-slider slider-height2 d-flex align-items-center" data-background="{% static 'img/category.jpg' %}">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="hero-cap text-center">
+                      <h2>Frequently Asked Questions</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        Quartz is a hard, crystalline mineral composed of silica. The atoms are linked in a continuous framework of SiO₄ silicon-oxygen tetrahedra, with each oxygen being shared between two tetrahedra, giving an overall chemical formula of SiO₂
+    </div>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        Quartz is used for Jewelry making and gemstones, for its ability to luster, to brick making in the refractory industry for its physical strength and to watches and clocks for its piezoelectric property.
+    </div>
+
+    </div>
+
+
+
+{% endblock %}
